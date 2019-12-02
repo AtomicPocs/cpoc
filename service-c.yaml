@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: cpoc-service
+  namespace: atomic-pocs
+  labels:
+    app: cpoc
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: 30080
+  selector:
+    app: cpoc
