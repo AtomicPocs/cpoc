@@ -42,7 +42,6 @@ jobs:
           manifests: |
             k8s/cpoc-deployment.yaml
             k8s/cpoc-service.yaml
-            k8s/cpoc-mapping.yaml
           images: |
             IMAGE_ID
           imagepullsecrets: |

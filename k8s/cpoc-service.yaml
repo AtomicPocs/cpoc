@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cpoc-service
+  namespace: atomic-pocs
+  labels:
+    app: cpoc
+  annotations:
+    getambassador.io/config: |
+      apiVersion: ambassador/v1
+      kind: Mapping
+      name: cpoc-mapping
+      prefix: /cpoc/
+      rewrite: /
+      method: GET
+      service: cpoc-service:4567
+spec:
+  selector:
+    app: cpoc
+  ports:
+  - name: http
+    port: 4567
+    targetPort: 4567
